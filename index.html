@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='cssRace.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    
+
+    <title>Car Racing Game</title>
+</head>
+<body>
+
+    <div class="container">
+		<div class="road"></div>
+		
+	</div>
+    <div id="container">
+        <div class="roadBackground">
+            
+            <div class="OtherCar carRed"></div>
+            <!--<div class="OtherCar carBlue"></div> -->
+            <!--<div class="OtherCar carGreen"></div> -->
+             <div class="OtherCar carYellow"></div>
+            
+            <div class="carUser"></div>
+        </div>
+
+        <div class = "startSection">
+            <p><span class="green">Click Here </span>to start the game</p>
+            <p>Right and Left arrow keys are valid on keyboard to shift the position of the car.</p>
+        </div>
+    
+
+        <div id="asideInstruction"> 
+            <!-- <button id="startButton" onclick='startGame()'>START</button><br>
+            <button class= "leftButton" onclick = 'moveLeft()'>&lt;</button>
+            <button class= "rightButton" onclick = 'moveRight()'>&gt;</button>
+             -->
+          
+            <h2><div id="scoreBoard">Score :  0</div></h2>
+            <h3>Instructions:</h3>
+            <ul>
+                <li>Click <span class= "green">Instuction Area</span> button to start the race</li>
+                <li>Press the <span class= "green">Left Arrow Key</span> move left</li>
+                <li>Press the <span class= "green">Right Arrow Key </span> move right<li>
+                <!-- <li>Score increases by 1 on every car passing by</li> -->
+                <li>Right and Left arrow keys are valid on keyboard</li>
+                <li>Game will be over if the cars collide</li>
+
+
+            </ul>
+        </div>
+    </div>
+
+    <script src="jsRace.js"></script>
+</body>
+</html>
