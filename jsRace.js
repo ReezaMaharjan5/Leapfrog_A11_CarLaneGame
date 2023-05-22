@@ -4,7 +4,7 @@
 
 let score = 0;
 
-const roadarea=document.querySelector('.road');
+const roadarea=document.querySelector('.roadBackground');
 
 		let player = {step: 3};
 		let keys = {ArrowUp: false, ArrowDown:false, ArrowLeft:false, ArrowRight:false};
@@ -15,7 +15,7 @@ const roadarea=document.querySelector('.road');
         function init(){   
             const startSection=document.querySelector('.startSection');
 
-            startSection.addEventListener('onclick', start);
+            startSection.addEventListener('click', start);
             function start(){
                 startSection.classList.add('hide');
             }
@@ -25,7 +25,7 @@ const roadarea=document.querySelector('.road');
 			window.requestAnimationFrame(playarea);
 
 			let playercar= document.createElement('div');
-		playercar.SetAttribute('class','car')
+		playercar.setAttribute('class','carUser')
 		roadarea.appendChild(playercar);
 
 		player.x = playercar.offsetLeft;
@@ -35,38 +35,38 @@ const roadarea=document.querySelector('.road');
 		for(x =0; x<5;x++)
 		{
 			let roadlines = document.createElement('div');
-			roadlines.SetAttribute('class','line');
+			roadlines.setAttribute('class','roadLine');
 			roadlines.y = x * 150;
 			roadlines.style.top=roadlines.y + 'px';
 			roadarea.appendChild(roadlines);
-	}
-	//vehicles in road generate randomly
-	for(x=0; x < 4; x++)
-	{
-		let vehicles = document.createElement('div');
-		vehicles.SetAttribute('class','vehicle');
-		vehicles.y = ((x + 1) *300) * -1;
-		vehicles.style.top = vehicles.y + 'px';
-		//roadwidth =400, vehicle width =50
-		vehicles.style.left = Math.floor (Math. random() *300 ) + 'px';
-		roadarea.appendChild(vehicles);
-	}
+        }
+        //vehicles in road generate randomly
+        for(x=0; x < 4; x++)
+        {
+            let vehicles = document.createElement('div');
+            vehicles.setAttribute('class','otherCar');
+            vehicles.y = ((x + 1) *300) * -1;
+            vehicles.style.top = vehicles.y + 'px';
+            //roadwidth =400, vehicle width =50
+            vehicles.style.left = Math.floor (Math. random() *300 ) + 'px';
+            roadarea.appendChild(vehicles);
+        }
 		}
 
 
 
-		function keyDown(ev)
-		{
+		function keyDown(ev){
+            ev.preventDefault();
 			keys[ev.key]=true;
 		}
-		function keyUp(ev)
-		{
+		function keyUp(ev){
+            ev.preventDefault();
 			keys[ev.key]= false;
 		}
 
 		function movelines()
 		{
-			let roadlines=document.querySelectorAll('.line');
+			let roadlines=document.querySelectorAll('.roadLine');
 			roadlines.forEach(function(item)
 			{
 				if (item.y >= 700)
@@ -74,12 +74,12 @@ const roadarea=document.querySelector('.road');
 						item.y = item.y - 750;
 					}
 					item.y = item.y + player.step;
-					item.style.top - item.y + 'px' 
+					item.style.top = item.y + 'px' 
 			})
 		}
 		function movevechicles(playercar)
 		{
-			let vehicles = document.querySelectorAll('.vehicle');
+			let vehicles = document.querySelectorAll('.otherCar');
 			playercarboun = getBoundingClientRect();
 
 			vehicles.forEach(function(item)
@@ -101,7 +101,7 @@ const roadarea=document.querySelector('.road');
 				if(item.y > 750)
 				{
 					item.y = -300;
-					item.styke.left = Math.floor(Math.random() * 350) + 'px';
+					item.style.left = Math.floor(Math.random() * 350) + 'px';
 				} 
 				item.y = item.y + player.step;
 				item.style.top - item.y + 'px';
@@ -110,7 +110,7 @@ const roadarea=document.querySelector('.road');
 		function playarea()
 		{
 			let playercar = document.querySelector('.car');
-			let road =roadarea.getBoundingClientRect();
+			let road =playercar.getBoundingClientRect();
 			if(player.start)
 			{
 				movelines();

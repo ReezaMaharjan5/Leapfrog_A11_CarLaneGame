@@ -128,6 +128,10 @@ button:hover{
 
 }
 
+.hide{
+    display: none;
+}
+ 
 
 
 
@@ -150,10 +154,7 @@ button:hover{
     left: 216px;
 }   */
 
-.hide{
-    display: none;
-}
- 
+
 
 /* .roadBackground{
     background-image: url('road_3.png');
